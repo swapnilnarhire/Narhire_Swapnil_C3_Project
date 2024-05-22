@@ -16,13 +16,8 @@ public class Restaurant {
         this.closingTime = closingTime;
     }
 
-    public boolean isRestaurantOpen() {
-        LocalTime currentTime = getCurrentTime();
+    public boolean isRestaurantOpen(LocalTime currentTime) {
         return !currentTime.isBefore(openingTime) && !currentTime.isAfter(closingTime);
-    }
-
-    public LocalTime getCurrentTime() {
-        return LocalTime.now();
     }
 
     public List<Item> getMenu() {

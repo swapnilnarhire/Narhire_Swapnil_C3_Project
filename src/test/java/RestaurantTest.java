@@ -12,7 +12,7 @@ class RestaurantTest {
     public void is_restaurant_open_should_return_true_if_time_is_between_opening_and_closing_time() {
         restaurant = new Restaurant("", "", LocalTime.of(10, 0), LocalTime.of(20, 0));
         // Test for a time within opening and closing time (12:00 PM)
-        boolean isOpen = restaurant.isRestaurantOpen();
+        boolean isOpen = restaurant.isRestaurantOpen(LocalTime.of(12, 0));
         assertTrue(isOpen, "Restaurant should be open at current time");
     }
 
@@ -20,11 +20,11 @@ class RestaurantTest {
     public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time() {
         restaurant = new Restaurant("", "", LocalTime.of(10, 0), LocalTime.of(20, 0));
         // Test for a time before opening time (9:00 AM)
-        boolean isOpenBeforeOpeningTime = restaurant.isRestaurantOpen();
+        boolean isOpenBeforeOpeningTime = restaurant.isRestaurantOpen(LocalTime.of(9, 0));
         assertFalse(isOpenBeforeOpeningTime, "Restaurant should not be open before 10:00 AM");
 
         // Test for a time after closing time (9:00 PM)
-        boolean isOpenAfterClosingTime = restaurant.isRestaurantOpen();
+        boolean isOpenAfterClosingTime = restaurant.isRestaurantOpen(LocalTime.of(21, 0));
         assertFalse(isOpenAfterClosingTime, "Restaurant should not be open after 8:00 PM");
     }
 

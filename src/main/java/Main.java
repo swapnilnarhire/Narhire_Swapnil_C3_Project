@@ -29,7 +29,7 @@ public class Main {
             System.out.println("Found restaurant: " + foundRestaurant.getName());
 
             // Check if the restaurant is open
-            boolean isOpen = foundRestaurant.isRestaurantOpen();
+            boolean isOpen = foundRestaurant.isRestaurantOpen(LocalTime.of(10, 0));
             System.out.println("Is restaurant open? " + isOpen);
 
             // Print the menu of the restaurant
